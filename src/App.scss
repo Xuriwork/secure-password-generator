@@ -1,0 +1,110 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Nunito', sans-serif;
+}
+
+%flex-complete-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+button,
+html [type='button'] {
+  -webkit-appearance: button;
+}
+
+.home-component {
+  @extend %flex-complete-center;
+  height: 600px;
+  width: 800px;
+  max-width: 95%;
+  background-color: #fff;
+  margin: 0 auto;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px rgba(94, 99, 119, 0.05),
+    0 15px 40px rgba(132, 138, 158, 0.3);
+
+  > div {
+    width: 100%;
+    max-width: 600px;
+    padding: 40px;
+
+    .tooltip-paragraph {
+      margin-top: 5px;
+      margin-bottom: 10px;
+      color: #278ac7;
+    }
+
+    #infoTip {
+      max-width: 300px;
+    }
+  }
+
+  h1 {
+    font-size: 2.4em;
+    width: 100%;
+    line-height: 1;
+  }
+
+  h3 {
+    width: 100%;
+  }
+
+  input[type='text'] {
+    margin-bottom: 5px;
+  }
+
+  .suggestions {
+    color: #30e3ca;
+  }
+
+  .warning {
+    color: #ff1f5a;
+  }
+
+  .slider {
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 15px;
+  }
+
+  .generated-password-input {
+    max-width: 100%;
+  }
+
+  .switch-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+  }
+
+  .button-container {
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  .generate-password-button {
+    padding: 15px 40px;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    color: #fff;
+    font-weight: 600;
+    background-image: linear-gradient(
+      to right,
+      #40a9ff 0%,
+      #6abef3 50%,
+      #096dd9 100%
+    );
+
+    &:hover {
+      background-position: right center;
+    }
+  }
+}
