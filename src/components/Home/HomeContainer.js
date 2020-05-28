@@ -21,14 +21,13 @@ const HomeContainer = () => {
     const includeLettersRef = useRef(null);
     const includeSpecialCharactersRef = useRef(null);
 
+    const _settings = 
+    (settings.includeNumbers || 
+    settings.includeLetters || 
+    settings.includeSpecialCharacters);
+
     const handleGeneratePassword = useCallback(() => {
-        if (
-            (
-            settings.includeNumbers || 
-            settings.includeLetters || 
-            settings.includeSpecialCharacters
-            ) === false
-        ) return cogoToast.error('Please select an least one option');
+        if (_settings === false) return cogoToast.error('Please select an least one option');
 
         const alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
         const numeric = '0123456789';
@@ -48,20 +47,14 @@ const HomeContainer = () => {
 
         const _generatedPassword = createPassword();
         setGeneratedPassword(_generatedPassword);
-    }, [sliderValue, settings]);
+    }, [sliderValue, _settings, settings]);
 
     useEffect(() => {
         handleGeneratePassword();
     }, [handleGeneratePassword]);
 
     const onSliderChange = (value) => {
-        if (
-            (
-            settings.includeNumbers || 
-            settings.includeLetters || 
-            settings.includeSpecialCharacters
-            ) === false
-        ) return;
+        if (_settings === false) return;
         setSliderValue(value);
     };
 
@@ -72,10 +65,9 @@ const HomeContainer = () => {
 
     const Clipboard = () => '📋';
     
-    const selectPassword = () => {
-        const generatedPasswordInput = document.getElementById('generated-password-input');
-        generatedPasswordInput.focus();
-        generatedPasswordInput.select();
+    const selectPassword = (e) => {
+        e.target.focus();
+        e.target.select();
         document.execCommand('copy');
         cogoToast.success('Copied to clipboard!', { position: 'top-right', renderIcon: Clipboard });
     };

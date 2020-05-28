@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
-import { Input, Slider, Toggle, Icon } from 'rsuite';
+import { Input, Slider, Toggle } from 'rsuite';
 import ReactTooltip from 'react-tooltip';
+import { ReactComponent as InfoIcon } from '../../assets/info-icon.svg';
+
+import { LanguageContext } from '../../context/languageContext';
+import Meter from '../Meter';
+import LanguageDropdown from '../LanguageDropdown';
 
 const Home = ({ 
   generatedPassword, 
@@ -16,30 +21,38 @@ const Home = ({
   handleGeneratePassword
  }) => {
 
+  const { dictionary } = useContext(LanguageContext);
+
   return (
     <div className='home-component'>
-      <div>
+      <LanguageDropdown />
+      <div className='home-content'>
         <h1>Secure Password Generator</h1>
         <p className='tooltip-paragraph'>
-          What is a strong password?{' '}
-          <Icon icon='info' data-tip data-for='infoTip' />
+          {dictionary.strongPasswordQuestion}{' '}
+          <InfoIcon
+            className='info-icon'
+            icon='info'
+            data-tip
+            data-for='infoTip'
+          />
         </p>
         <ReactTooltip id='infoTip' place='top' effect='solid'>
-          A strong password is a password that contains a mix of letters,
-          numbers, symbols and roughly 12-15 characters.
+          {dictionary.strongPasswordQuestionTooltip}
         </ReactTooltip>
-        <label>Generated Password</label>
-          <Input 
-            readOnly
-            className='generated-password-input' 
-            id='generated-password-input' 
-            value={generatedPassword} 
-            onClick={selectPassword} 
-          />
-        <label>Length: {sliderValue}</label>
+        <label htmlFor='generated-password-input'>{dictionary.generatedPassword}</label>
+        <Input
+          readOnly
+          className='generated-password-input'
+          id='generated-password-input'
+          value={generatedPassword}
+          onClick={selectPassword}
+        />
+        <Meter password={generatedPassword} dictionary={dictionary} />
+        <label>{dictionary.length}: {sliderValue}</label>
         <Slider
-          progress 
-          min={4} 
+          progress
+          min={4}
           max={512}
           defaultValue={sliderValue}
           onChange={onSliderChange}
@@ -47,37 +60,44 @@ const Home = ({
         />
         <h3>Settings</h3>
         <div className='switch-container'>
-          <label htmlFor='includeNumbers'>Include numbers</label>
+          <label htmlFor='includeNumbers'>{dictionary.includeN}</label>
           <Toggle
             name='includeNumbers'
-            ref={includeNumbersRef} 
+            id='includeNumbers'
+            aria-hidden='true'
+            ref={includeNumbersRef}
             defaultChecked={settings.includeNumbers}
             onChange={(value) => handleChangeSettings(value, includeNumbersRef)}
           />
         </div>
         <div className='switch-container'>
-          <label>Include letters</label>
+          <label>{dictionary.includeL}</label>
           <Toggle
             name='includeLetters'
-            ref={includeLettersRef} 
+            aria-hidden='true'
+            ref={includeLettersRef}
             defaultChecked={settings.includeLetters}
             onChange={(value) => handleChangeSettings(value, includeLettersRef)}
           />
         </div>
         <div className='switch-container'>
-          <label>Include special characters</label>
+          <label>{dictionary.includeSC}</label>
           <Toggle
             name='includeSpecialCharacters'
-            ref={includeSpecialCharactersRef} 
+            aria-hidden='true'
+            ref={includeSpecialCharactersRef}
             defaultChecked={settings.includeSpecialCharacters}
-            onChange={(value) => handleChangeSettings(value, includeSpecialCharactersRef)}
+            onChange={(value) =>
+              handleChangeSettings(value, includeSpecialCharactersRef)
+            }
           />
         </div>
         <div className='button-container'>
-          <button 
-            className='generate-password-button' 
-            onClick={handleGeneratePassword}>
-            Generate Password
+          <button
+            className='generate-password-button'
+            onClick={handleGeneratePassword}
+          >
+            {dictionary.generatePasswordButton}
           </button>
         </div>
       </div>
