@@ -8,7 +8,15 @@ export const LanguageContext = createContext({
 
 export const LanguageProvider = (props) => {
     const languageContext = useContext(LanguageContext);
-    const [siteLanguage, setSiteLanguage] = useState(localStorage.getItem('lang') ?? languageContext.language);
+    
+    const [siteLanguage, setSiteLanguage] = useState(() => {
+        if (localStorage.getItem('lang')) {
+            const localStorageLangId = JSON.parse(localStorage.getItem('lang'));
+            return localStorageLangId;
+        };
+       return languageContext.language;
+    });
+
     const [dictionary, setDictionary] = useState(() => {
         if (localStorage.getItem('lang')) {
             const localStorageLang = languageList[JSON.parse(localStorage.getItem('lang')).id];
@@ -16,6 +24,8 @@ export const LanguageProvider = (props) => {
         }
         return languageContext.dictionary;
     });
+
+    document.documentElement.lang = siteLanguage.id;
     
     const value = {
         siteLanguage,

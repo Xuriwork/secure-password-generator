@@ -49,6 +49,7 @@ const Home = ({
           onClick={selectPassword}
         />
         <Meter password={generatedPassword} dictionary={dictionary} />
+        <h3>{dictionary.settings}</h3>
         <label>{dictionary.length}: {sliderValue}</label>
         <Slider
           progress
@@ -58,7 +59,6 @@ const Home = ({
           onChange={onSliderChange}
           className='slider'
         />
-        <h3>Settings</h3>
         <div className='switch-container'>
           <label htmlFor='includeNumbers'>{dictionary.includeN}</label>
           <Toggle

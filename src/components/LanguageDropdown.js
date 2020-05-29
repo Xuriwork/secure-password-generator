@@ -23,11 +23,12 @@ export const LanguageDropdown = () => {
           className='translate-icon' />
         } 
         className='dropdown' 
-        activeKey={siteLanguage.id}>
-        <Dropdown.Item eventKey="en">English</Dropdown.Item>
-        <Dropdown.Item eventKey="pl">Polski</Dropdown.Item>
-        <Dropdown.Item eventKey="ro">Română</Dropdown.Item>
-        <Dropdown.Item eventKey="ru">Русский</Dropdown.Item>
+        activeKey={siteLanguage.id} 
+      >
+        <Dropdown.Item eventKey="en" role="menuitem" aria-controls="tab-1-pane">English</Dropdown.Item>
+        <Dropdown.Item eventKey="pl" role="menuitem" tabIndex={-1} aria-controls="tab-2-pane">Polski</Dropdown.Item>
+        <Dropdown.Item eventKey="ro" role="menuitem" tabIndex={-1} aria-controls="tab-3-pane">Română</Dropdown.Item>
+        <Dropdown.Item eventKey="ru" role="menuitem" tabIndex={-1} aria-controls="tab-4-pane">Русский</Dropdown.Item>
       </Dropdown>
     </div>
   );

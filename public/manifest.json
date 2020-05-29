@@ -1,6 +1,6 @@
 {
   "short_name": "Password Generator",
-  "name": "Password Generator",
+  "name": "Secure Password Generator",
   "icons": [
     {
       "src": "favicon.ico",
@@ -20,7 +20,7 @@
     {
       "src": "maskable_icon.png",
       "type": "image/png",
-      "sizes": "512x512",
+      "sizes": "192x192",
       "purpose": "any maskable"
     }
   ],

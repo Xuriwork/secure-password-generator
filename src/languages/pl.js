@@ -4,7 +4,7 @@ const pl = {
     'Silnego hasło jest hasło który składać się z litery, cyfr, znaków specjalnych i jest około 12-15 znaków.',
   generatedPassword: 'Wygenerowane hasło',
   passwordStrength: 'Sila hasła',
-  Weak: 'Słabe hasła',
+  Weak: 'Słabe',
   Okay: 'Okay',
   Good: 'Dobre',
   Strong: 'Silny',
