@@ -45,7 +45,7 @@ export const Meter = ({ password, dictionary }) => {
                 max='4'
             />
             <label className='password-strength-meter-label'>
-                <strong>Password strength: </strong>{createClassName(false)}
+                <strong>{dictionary.passwordStrength}: </strong>{createClassName(false)}
             </label>
         </div>
     );

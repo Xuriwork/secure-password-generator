@@ -3,7 +3,7 @@ import { Dropdown } from 'rsuite';
 
 import { LanguageContext } from '../context/languageContext';
 import { languageOptions } from '../languages/languages';
-import TranslateIcon from '../assets/translate.svg';
+import TranslateIcon from '../assets/translate-icon.svg';
 
 export const LanguageDropdown = () => {
   const { siteLanguage, setLanguage } = useContext(LanguageContext);

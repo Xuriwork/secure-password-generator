@@ -14,6 +14,7 @@ const en = {
   includeL: 'Include letters',
   includeSC: 'Include special characters',
   generatePasswordButton: 'Generate Password',
+  noOptionSelectedMessage: 'Please select an least one option'
 };
 
 export default en;

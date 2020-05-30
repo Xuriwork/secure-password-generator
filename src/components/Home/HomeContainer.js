@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, useCallback } from 'react';
+import React, { useState, useRef, useEffect, useCallback, useContext } from 'react';
 
 import cogoToast from 'cogo-toast';
 
@@ -6,8 +6,11 @@ import { customRandom } from 'nanoid';
 import seedrandom from 'seedrandom';
 
 import Home from './Home';
+import { LanguageContext } from '../../context/languageContext';
 
 const HomeContainer = () => {
+
+    const { dictionary } = useContext(LanguageContext);
 
     const [generatedPassword, setGeneratedPassword] = useState('');
     const [sliderValue, setSliderValue] = useState(15);
@@ -27,7 +30,7 @@ const HomeContainer = () => {
     settings.includeSpecialCharacters);
 
     const handleGeneratePassword = useCallback(() => {
-        if (_settings === false) return cogoToast.error('Please select an least one option');
+        if (_settings === false) return cogoToast.error(dictionary.noOptionSelectedMessage);
 
         const alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
         const numeric = '0123456789';
@@ -47,7 +50,7 @@ const HomeContainer = () => {
 
         const _generatedPassword = createPassword();
         setGeneratedPassword(_generatedPassword);
-    }, [sliderValue, _settings, settings]);
+    }, [sliderValue, _settings, settings, dictionary.noOptionSelectedMessage]);
 
     useEffect(() => {
         handleGeneratePassword();

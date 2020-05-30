@@ -52,12 +52,12 @@ const Home = ({
         <h3>{dictionary.settings}</h3>
         <label>{dictionary.length}: {sliderValue}</label>
         <Slider
-          progress
+          progress={true}
           min={4}
           max={512}
           defaultValue={sliderValue}
-          onChange={onSliderChange}
-          className='slider'
+          onChange={onSliderChange} 
+          className='slider' 
         />
         <div className='switch-container'>
           <label htmlFor='includeNumbers'>{dictionary.includeN}</label>

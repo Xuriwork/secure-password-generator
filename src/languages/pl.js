@@ -14,6 +14,7 @@ const pl = {
   includeL: 'Zawierać litery',
   includeSC: 'Zawierać znaków specjalnych',
   generatePasswordButton: 'Utwórz hasło',
+  noOptionSelectedMessage: 'Musisz zaznaczyć co najmniej jedna opcja'
 };
 
 export default pl;

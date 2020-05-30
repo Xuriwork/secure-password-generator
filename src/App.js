@@ -7,7 +7,6 @@ import './App.scss';
 import './rsuite-default.css';
 
 export const App = () => {
-
   return (
     <LanguageProvider>
       <HomeContainer />

@@ -14,6 +14,7 @@ const ru = {
   includeL: 'Включают письма',
   includeSC: 'Включают специальных символов',
   generatePasswordButton: 'Генерировать Пароль',
+  noOptionSelectedMessage: 'Пожалуйста, выберите мере один из вариантов'
 };
 
 export default ru;
