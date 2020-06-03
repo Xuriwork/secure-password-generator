@@ -3,6 +3,7 @@
   font-family: 'Nunito';
   font-style: normal;
   font-weight: 400;
+  font-display: swap;
   src: url('./assets/fonts/nunito-v12-latin_cyrillic-regular.eot'); /* IE9 Compat Modes */
   src: local('Nunito Regular'), local('Nunito-Regular'),
        url('./assets/fonts/nunito-v12-latin_cyrillic-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
@@ -17,6 +18,7 @@
   font-family: 'Nunito';
   font-style: normal;
   font-weight: 700;
+  font-display: swap;
   src: url('./assets/fonts/nunito-v12-latin_cyrillic-700.eot'); /* IE9 Compat Modes */
   src: local('Nunito Bold'), local('Nunito-Bold'),
        url('./assets/fonts/nunito-v12-latin_cyrillic-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
@@ -30,7 +32,6 @@
   margin: 0;
   padding: 0;
   font-family: 'Nunito', sans-serif;
-  font-display: swap;
 }
 
 %flex-complete-center {
@@ -49,6 +50,12 @@ button,
 html [type='button'] {
   -webkit-appearance: button;
   border: none;
+}
+
+input, button {
+  &:focus {
+    outline: none;
+  }
 }
 
 .password-strength-meter {
@@ -253,3 +260,4 @@ hr {
     }
   }
 }
+

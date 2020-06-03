@@ -4,7 +4,8 @@
     "ignore": [
       "firebase.json",
       "**/.*",
-      "**/node_modules/**"
+      "**/node_modules/**",
+      "purgecss.config.js"
     ],
     "rewrites": [
       {
@@ -13,6 +14,44 @@
       }
     ],
     "headers": [
+      {
+        "source": "**/*",
+        "headers": [
+          {
+            "key": "X-Frame-Options", "value": "SAMEORIGIN"
+          },
+          {
+            "key": "X-XSS-Protection", "value": "1; mode=block"
+          },
+          {
+            "key": "Strict-Transport-Security", "value": "max-age=31536000; includeSubDomains; preload"
+          },
+          {
+            "key": "Expect-CT", "value": "max-age=604800, enforce"
+          },
+          {
+            "key": "X-Content-Type-Options", "value": "nosniff"
+          },
+          {
+            "key": "Feature-Policy", "value": "autoplay 'none'; camera 'none'; geolocation 'none'; microphone 'none'"
+          },
+          {
+            "key": "Referrer-Policy", "value": "no-referrer"
+          },
+          {
+            "key": "Content-Security-Policy", "value": "form-action 'none'"
+          }
+        ]
+      },
+      {
+        "source": "**/*.@(eot|otf|ttf|ttc|woff|woff2|font.css)",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=17280000"
+          }
+        ]
+      },
       {
         "source": "**/*.@(jpg|jpeg|png|svg|ico)",
         "headers": [
@@ -36,7 +75,7 @@
         "headers": [
           {
             "key": "Cache-Control",
-            "value": "public, no-cache"
+            "value": "public, max-age=17280000"
           }
         ]
       }

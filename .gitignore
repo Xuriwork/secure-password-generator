@@ -23,5 +23,5 @@ yarn-debug.log*
 yarn-error.log*
 
 purgecss.config.js
-Dockerfile
-.dockerignore
+.firebaserc
+/.firebase

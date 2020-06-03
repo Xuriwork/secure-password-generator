@@ -4,7 +4,7 @@ import { LanguageProvider } from './context/languageContext';
 import HomeContainer from './components/Home/HomeContainer';
 
 import './App.scss';
-import './rsuite-default.css';
+import './styles/rsuite-default.css';
 
 export const App = () => {
   return (
